@@ -86,7 +86,7 @@ jobs:
         with:
           repository: saikishore29/end-to-end-cicd-deployment
           token: ${{ secrets.GH_PAT }}
-          path: deploy-repo
+          path: end-to-end-cicd-deployment
 
       - name: Update image tag in deployment.yaml
         run: |
@@ -96,7 +96,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
-          cd deploy-repo
+          cd end-to-end-cicd-deployment
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           BRANCH="update-image-${{ steps.version.outputs.tag }}"
